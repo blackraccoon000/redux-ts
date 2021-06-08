@@ -1,10 +1,18 @@
-interface RepositoriesState {
+type RepositoriesState = {
   loading: boolean;
   error: string | null;
   data: string[];
-}
+};
 
-const reducer = (state: RepositoriesState, action: any): RepositoriesState => {
+type Action = {
+  type: string;
+  payload?: any;
+};
+
+const reducer = (
+  state: RepositoriesState,
+  action: Action
+): RepositoriesState => {
   switch (action.type) {
     case 'search_repositories':
       return { loading: true, error: null, data: [] };
